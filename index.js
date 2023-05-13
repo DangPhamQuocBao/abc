@@ -66,10 +66,75 @@ document.querySelector("#tinhTienDien").onclick = tienDien;
 //baitap3: tinh thue thu nhap ca nhan
 
 function tienThue() {
+  var nhapTen = document.getElementById("nhapVaoTen").value;
   var tienThuNhap = document.getElementById("thuNhap").value * 1;
   console.log(tienThuNhap);
   var nguoiPhuThuoc = document.getElementById("soNguoi").value * 1;
+  var thuNhapChiuThue = tienThuNhap - 4e6 - 1.6e6 * nguoiPhuThuoc;
 
-  document.getElementById("hienThiThue").innerHTML = tienThue;
+  if (thuNhapChiuThue <= 6e7) {
+    var thueThuNhap = (thuNhapChiuThue * 5) / 100;
+  } else if (6e7 < thuNhapChiuThue <= 12e7) {
+    var thueThuNhap = (6e7 * 5) / 100 + ((thuNhapChiuThue - 6e7) * 10) / 100;
+  } else if (12e7 < thuNhapChiuThue <= 21e7) {
+    var thueThuNhap =
+      (6e7 * 5) / 100 +
+      (12e7 * 10) / 100 +
+      ((thuNhapChiuThue - 12e7) * 15) / 100;
+  } else if (21e7 < thuNhapChiuThue <= 384e6) {
+    var thueThuNhap =
+      (6e7 * 5) / 100 +
+      (12e7 * 10) / 100 +
+      (21e7 * 15) / 100 +
+      ((thuNhapChiuThue - 21e7) * 20) / 100;
+  } else if (384e6 < thuNhapChiuThue <= 624e6) {
+    var thueThuNhap =
+      (6e7 * 5) / 100 +
+      (12e7 * 10) / 100 +
+      (21e7 * 15) / 100 +
+      (384e6 * 20) / 100 +
+      ((thuNhapChiuThue - 384e6) * 25) / 100;
+  } else if (624e6 < thuNhapChiuThue <= 96e7) {
+    var thueThuNhap =
+      (6e7 * 5) / 100 +
+      (12e7 * 10) / 100 +
+      (21e7 * 15) / 100 +
+      (384e6 * 20) / 100 +
+      (624e6 * 25) / 100 +
+      ((thuNhapChiuThue - 624e6) * 20) / 100;
+  } else if (thuNhapChiuThue > 9e8) {
+    var thueThuNhap =
+      (6e7 * 5) / 100 +
+      (12e7 * 10) / 100 +
+      (21e7 * 15) / 100 +
+      (384e6 * 20) / 100 +
+      (624e6 * 25) / 100 +
+      (9e8 * 30) / 100 +
+      ((thuNhapChiuThue - 9e8) * 35) / 100;
+  }
+  document.getElementById("hienThiThue").innerHTML =
+    " ho ten: " +
+    nhapTen +
+    " , tien thue thu nhap ca nhan: " +
+    thueThuNhap +
+    " VND";
 }
 document.querySelector("#tinhTienThue").onclick = tienThue;
+
+//baitap4
+
+function tinhTienCap() {
+  var soKenh = document.getElementById("soKenh").value * 1;
+  var chonKH = document.getElementById("chonKhach").value;
+  var soKetNoi = document.getElementById("soKetNoi").value * 1;
+  if (chonKH == "doanhNghiep" && soKetNoi <= 10) {
+    // document.querySelector("#soKetNoi");
+    var tienCap = 15 + 75 + 50 * soKenh;
+  } else if (chonKH == "doanhNghiep" && soKetNoi > 10) {
+    // document.querySelector("#soKetNoi");
+    var tienCap = 15 + 75 + soKetNoi * 5 + 50 * soKenh;
+  } else if (chonKH == "nhaDan") {
+    var tienCap = 4.5 + 20.5 + soKenh * 7.5;
+  }
+  document.querySelector("#hienThiTienCap").innerHTML = "$" + tienCap;
+}
