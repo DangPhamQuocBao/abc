@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 
@@ -113,18 +114,18 @@
 
     <div class="container">
         <h1>bai tap tinh tien cap</h1>
-        <div class="mp3">
-            <label for="" class="form-label" onchange=" "></label>
-            <select name="" id="chonKhach">
+        <div class="mp3 ">
+            <label for="" class="form-label"></label>
+            <select name="" id="chonKhach" onchange="doanhNghiep()">
                 <option value="">Chon loai khach hang</option>
                 <option value="nhaDan">Nha dan</option>
                 <option value="doanhNghiep">Doanh nghiep</option>
             </select>
         </div>
         <br>
-        <div class="mb-3">
+        <div class=" chonKhachHang mb-3 ">
             <label for="" class="form-label"></label>
-            <input type="text" class="form-control" name="" id="soKetNoi" aria-describedby="emailHelpId"
+            <input type="text" class="form-control " name="" id="soKetNoi" aria-describedby="emailHelpId"
                 placeholder="so ket noi">
         </div>
         <br>

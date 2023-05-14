@@ -124,17 +124,26 @@ document.querySelector("#tinhTienThue").onclick = tienThue;
 //baitap4
 
 function tinhTienCap() {
+  var maKh = document.getElementById("maKH").value;
   var soKenh = document.getElementById("soKenh").value * 1;
   var chonKH = document.getElementById("chonKhach").value;
   var soKetNoi = document.getElementById("soKetNoi").value * 1;
   if (chonKH == "doanhNghiep" && soKetNoi <= 10) {
-    // document.querySelector("#soKetNoi");
     var tienCap = 15 + 75 + 50 * soKenh;
   } else if (chonKH == "doanhNghiep" && soKetNoi > 10) {
-    // document.querySelector("#soKetNoi");
     var tienCap = 15 + 75 + soKetNoi * 5 + 50 * soKenh;
   } else if (chonKH == "nhaDan") {
     var tienCap = 4.5 + 20.5 + soKenh * 7.5;
   }
-  document.querySelector("#hienThiTienCap").innerHTML = "$" + tienCap;
+  document.querySelector("#hienThiTienCap").innerHTML =
+    " ma khach hang : " + maKh + ", tien cap : " + "$" + tienCap;
+}
+function doanhNghiep() {
+  var chonKH = document.getElementById("chonKhach").value;
+  if (chonKH == "doanhNghiep") {
+    console.log("chonKH");
+    document.getElementById("soKetNoi").style.display = `block`;
+  } else if (chonKH == "nhaDan") {
+    document.getElementById("soKetNoi").style.display = `none`;
+  }
 }
